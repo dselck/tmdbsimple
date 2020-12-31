@@ -83,7 +83,8 @@ class TMDB(object):
         response = self.session.request(
             method, url, params=params,
             data=json.dumps(payload) if payload else payload,
-            headers=self.headers)
+            headers=self.headers,
+            timeout=10)
 
         response.raise_for_status()
         response.encoding = 'utf-8'
